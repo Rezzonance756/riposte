@@ -1,0 +1,136 @@
+[
+  {
+    "viewport": "desktop",
+    "windupPoses": [
+      "HIGH",
+      "LOW",
+      "RIGHT",
+      "LEFT"
+    ],
+    "touch": "not applicable",
+    "diagnosticToggle": "PASS",
+    "keyHelp": "PASS",
+    "noControlOverlap": "PASS",
+    "naturalTabFocus": "FOCUS_PAUSE",
+    "boxes": {
+      "height": 1000,
+      "width": 1100,
+      "scroll": 1100,
+      "field": {
+        "top": 205.328125,
+        "bottom": 892.65625
+      },
+      "boxes": [
+        {
+          "action": "HIGH",
+          "x": 454.4375,
+          "y": 524.53125,
+          "w": 85.9375,
+          "h": 85.9375
+        },
+        {
+          "action": "LEFT",
+          "x": 347.71875,
+          "y": 642.34375,
+          "w": 85.9375,
+          "h": 85.9375
+        },
+        {
+          "action": "RIGHT",
+          "x": 561.171875,
+          "y": 642.34375,
+          "w": 85.9375,
+          "h": 85.9375
+        },
+        {
+          "action": "LOW",
+          "x": 454.4375,
+          "y": 757.40625,
+          "w": 85.9375,
+          "h": 85.9375
+        },
+        {
+          "action": "CENTER",
+          "x": 447.5,
+          "y": 635.40625,
+          "w": 99.796875,
+          "h": 99.796875
+        },
+        {
+          "action": "ITEM",
+          "x": 558.421875,
+          "y": 560.5625,
+          "w": 66.53125,
+          "h": 66.53125
+        }
+      ]
+    }
+  },
+  {
+    "viewport": "phone",
+    "windupPoses": [
+      "LOW",
+      "RIGHT",
+      "LEFT",
+      "HIGH"
+    ],
+    "touch": "PASS",
+    "diagnosticToggle": "PASS",
+    "keyHelp": "PASS",
+    "noControlOverlap": "PASS",
+    "naturalTabFocus": "FOCUS_PAUSE",
+    "boxes": {
+      "height": 800,
+      "width": 360,
+      "scroll": 360,
+      "field": {
+        "top": 119.796875,
+        "bottom": 770
+      },
+      "boxes": [
+        {
+          "action": "HIGH",
+          "x": 106.08969116210938,
+          "y": 477.5428161621094,
+          "w": 68.60186767578125,
+          "h": 68.60183715820312
+        },
+        {
+          "action": "LEFT",
+          "x": 27.65625,
+          "y": 568.21875,
+          "w": 64.71875,
+          "h": 64.71875
+        },
+        {
+          "action": "RIGHT",
+          "x": 188.421875,
+          "y": 568.21875,
+          "w": 64.71875,
+          "h": 64.71875
+        },
+        {
+          "action": "LOW",
+          "x": 108.03125,
+          "y": 654.875,
+          "w": 64.71875,
+          "h": 64.71875
+        },
+        {
+          "action": "CENTER",
+          "x": 102.8125,
+          "y": 563,
+          "w": 75.15625,
+          "h": 75.15625
+        },
+        {
+          "action": "ITEM",
+          "x": 186.34375,
+          "y": 506.625,
+          "w": 50.109375,
+          "h": 50.109375
+        }
+      ]
+    }
+  }
+]

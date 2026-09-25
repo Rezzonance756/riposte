@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-09-24T18:21:11.614Z",
+  "results": [
+    {
+      "phase": 5,
+      "viewport": "desktop",
+      "patterns": "PASS",
+      "allTwelveMappings": "PASS",
+      "victoryDefeatRestart": "PASS",
+      "comboPauseFocusReturn": "PASS",
+      "centerMouse": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "desktop",
+      "items": "PASS",
+      "pauseAndExposure": "PASS",
+      "bothShifts": "PASS",
+      "focusHandler": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "desktop",
+      "breaksAndCombos": "PASS",
+      "center": "PASS",
+      "continueAfterWrongAndMiss": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "desktop",
+      "ordinary": "PASS",
+      "layout": {
+        "width": 1100,
+        "scroll": 1100,
+        "boxes": [
+          {
+            "action": "HIGH",
+            "x": 454.4375,
+            "y": 366.125,
+            "w": 85.9375,
+            "h": 85.9375
+          },
+          {
+            "action": "LEFT",
+            "x": 347.71875,
+            "y": 483.9375,
+            "w": 85.9375,
+            "h": 85.9375
+          },
+          {
+            "action": "RIGHT",
+            "x": 561.171875,
+            "y": 483.9375,
+            "w": 85.9375,
+            "h": 85.9375
+          },
+          {
+            "action": "LOW",
+            "x": 451.859375,
+            "y": 596.421875,
+            "w": 91.09375,
+            "h": 91.09375
+          },
+          {
+            "action": "CENTER",
+            "x": 447.5,
+            "y": 477,
+            "w": 99.796875,
+            "h": 99.796875
+          },
+          {
+            "action": "ITEM",
+            "x": 558.421875,
+            "y": 402.15625,
+            "w": 66.53125,
+            "h": 66.53125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "phase": 5,
+      "viewport": "phone",
+      "patterns": "PASS",
+      "allTwelveMappings": "PASS",
+      "victoryDefeatRestart": "PASS",
+      "comboPauseFocusReturn": "PASS",
+      "centerMouse": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "phone",
+      "items": "PASS",
+      "pauseAndExposure": "PASS",
+      "bothShifts": "PASS",
+      "focusHandler": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "phone",
+      "breaksAndCombos": "PASS",
+      "center": "PASS",
+      "continueAfterWrongAndMiss": "PASS"
+    },
+    {
+      "phase": 5,
+      "viewport": "phone",
+      "ordinary": "PASS",
+      "layout": {
+        "width": 360,
+        "scroll": 360,
+        "boxes": [
+          {
+            "action": "HIGH",
+            "x": 108.03125,
+            "y": 321.09375,
+            "w": 64.71875,
+            "h": 64.71875
+          },
+          {
+            "action": "LEFT",
+            "x": 25.714691162109375,
+            "y": 407.8865661621094,
+            "w": 68.60186767578125,
+            "h": 68.60186767578125
+          },
+          {
+            "action": "RIGHT",
+            "x": 188.421875,
+            "y": 409.828125,
+            "w": 64.71875,
+            "h": 64.71875
+          },
+          {
+            "action": "LOW",
+            "x": 108.03125,
+            "y": 496.484375,
+            "w": 64.71875,
+            "h": 64.71875
+          },
+          {
+            "action": "CENTER",
+            "x": 102.8125,
+            "y": 404.609375,
+            "w": 75.15625,
+            "h": 75.15625
+          },
+          {
+            "action": "ITEM",
+            "x": 186.34375,
+            "y": 348.234375,
+            "w": 50.109375,
+            "h": 50.109375
+          }
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "errors": []
+}

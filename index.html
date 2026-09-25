@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111827" />
+    <title>Riposte — Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section id="game" class="game" aria-label="Riposte combat prototype">
+        <header class="game-header">
+          <div><p class="eyebrow">REACTION COMBAT PROTOTYPE</p><h1>RIPOSTE</h1></div>
+          <button id="debug-toggle" class="small-button" type="button" aria-pressed="true">Hide diagnostics</button>
+        </header>
+
+        <nav class="session-controls" aria-label="Session controls">
+          <button id="start-game" type="button">Begin duel</button>
+          <label><input id="keyboard-help" type="checkbox" checked> Key labels</label>
+        </nav>
+        <div id="battlefield" class="battlefield" tabindex="0">
+          <div id="combat-cue" class="combat-cue" role="status"><strong id="combat-message">Ready</strong><div class="timing-track"><span id="timing-fill"></span></div><div id="combo-sequence"></div></div>
+          <div class="status-card opponent-status" aria-label="Opponent status">
+            <div class="status-heading"><span>Rival</span><span>DEF</span></div>
+            <div class="meter"><span class="meter-fill health-fill full"></span></div>
+            <div class="meter stamina"><span class="meter-fill stamina-fill full"></span></div>
+          </div>
+
+          <div id="opponent-fighter" class="fighter opponent-fighter" data-pose="defensive" aria-label="Opponent fighter">
+            <svg viewBox="0 0 120 180" role="img" aria-label="Warm-colored opponent stick fighter facing the player">
+              <circle class="fighter-part head" cx="61" cy="30" r="18" />
+              <path class="fighter-line body" d="M60 48 L59 105" />
+              <path class="fighter-line arm arm-left" d="M59 62 L31 78 L19 64" />
+              <path class="fighter-line arm arm-right" d="M60 62 L87 75 L100 57" />
+              <path class="fighter-line leg leg-left" d="M58 104 L37 143 L23 169" />
+              <path class="fighter-line leg leg-right" d="M59 104 L80 139 L98 160" />
+              <path class="face-mark" d="M53 28 L57 30 M68 28 L64 30" />
+              <path class="weapon" d="M98 56 L110 24" />
+            </svg>
+            <span class="facing-label">FACING YOU</span>
+          </div>
+
+          <div class="duel-line" aria-hidden="true"><span></span></div>
+
+          <div id="player-cluster" class="player-cluster">
+            <div id="player-fighter" class="fighter player-fighter" data-pose="offensive" aria-label="Player fighter seen from behind">
+              <svg viewBox="0 0 120 180" role="img" aria-label="Cool-colored player stick fighter facing away toward the opponent">
+                <circle class="fighter-part head" cx="60" cy="30" r="18" />
+                <path class="back-mark" d="M50 24 Q60 17 70 24" />
+                <path class="fighter-line body" d="M60 48 L59 105" />
+                <path class="fighter-line arm arm-left" d="M59 62 L31 76 L18 58" />
+                <path class="fighter-line arm arm-right" d="M60 62 L87 72 L103 51" />
+                <path class="fighter-line leg leg-left" d="M58 104 L38 143 L25 169" />
+                <path class="fighter-line leg leg-right" d="M59 104 L80 139 L99 163" />
+                <path class="weapon" d="M102 52 L111 17" />
+              </svg>
+              <span class="facing-label">YOUR BACK</span>
+            </div>
+
+            <div id="input-halo" class="input-halo" aria-label="Combat controls">
+              <button class="zone high-zone" data-action="HIGH" type="button" aria-label="High response, W or Up Arrow"><span class="zone-icon">↑</span><span class="key-help">W / ↑</span></button>
+              <button class="zone left-zone" data-action="LEFT" type="button" aria-label="Left response, A or Left Arrow"><span class="zone-icon">←</span><span class="key-help">A / ←</span></button>
+              <button class="zone right-zone" data-action="RIGHT" type="button" aria-label="Right response, D or Right Arrow"><span class="zone-icon">→</span><span class="key-help">D / →</span></button>
+              <button class="zone low-zone" data-action="LOW" type="button" aria-label="Low response, S or Down Arrow"><span class="zone-icon">↓</span><span class="key-help">S / ↓</span></button>
+              <button id="center-control" class="center-control" data-action="CENTER" type="button" aria-label="Change stance, Spacebar"><span id="stance-icon" class="stance-icon">⚔</span><span id="stance-label">OFFENSE</span><span class="key-help">SPACE</span></button>
+              <button id="item-control" class="item-control" data-action="ITEM" type="button" aria-label="Open items, Shift or E"><span aria-hidden="true">✚</span><span class="item-count">×<span id="item-count">2</span></span><span class="key-help">E</span></button>
+            </div>
+          </div>
+
+          <div class="status-card player-status" aria-label="Player status">
+            <div class="status-heading"><span>You</span><span id="stance-short">ATK</span></div>
+            <div class="meter"><span class="meter-fill health-fill full"></span></div>
+            <div class="meter stamina"><span class="meter-fill stamina-fill full"></span></div>
+          </div>
+
+          <div id="focus-pause" class="focus-pause" hidden><strong>PAUSED</strong><span>Click the battlefield to continue</span></div>
+
+          <div id="item-panel" class="item-panel" role="dialog" aria-modal="true" aria-labelledby="item-title" hidden>
+            <button id="item-backdrop" class="item-backdrop" type="button" aria-label="Close item menu"></button>
+            <div class="item-card">
+              <p class="eyebrow">COMBAT PAUSED</p><h2 id="item-title">Choose an item</h2>
+              <div id="item-choices"><button class="item-choice" type="button" data-item="heal"><span class="item-symbol">✚</span><span><strong>Field Tonic</strong><small>Restore 25 health after 450ms exposed. Space to use.</small></span><span>×<span id="panel-item-count">2</span></span></button></div>
+              <button id="item-cancel" class="cancel-button" type="button">Cancel <span>Esc / Shift / E</span></button>
+            </div>
+          </div>
+        </div>
+
+        <aside id="debug-panel" class="debug-panel" aria-label="Input diagnostics">
+          <div class="test-controls"><label><input id="ability-test" type="checkbox"> Center ability combo</label><label>Attack pattern <select id="attack-pattern"><option value="normal">Normal</option><option value="feint">Feint</option><option value="dual">Dual threat</option><option value="fast">Faster opponent</option></select></label></div>
+          <div class="debug-summary"><span>State: <strong id="debug-state">READY</strong></span><span>Stance: <strong id="debug-stance">OFFENSIVE</strong></span><span>Held: <strong id="debug-held">NONE</strong></span><span id="debug-numbers"></span><span id="debug-expected"></span></div>
+          <ol id="input-history" class="input-history" aria-live="polite"><li class="empty-history">Use a key or click a control to begin.</li></ol>
+        </aside>
+
+        <footer class="control-reminder"><span>WASD / ARROWS</span><span>SPACE: STANCE</span><span>SHIFT / E: ITEMS</span></footer>
+      </section>
+    </main>
+
+    <script src="src/config.js"></script>
+    <script src="src/combat.js"></script>
+    <script src="src/renderer.js"></script>
+    <script src="src/input.js"></script>
+    <script src="src/game.js"></script>
+  </body>
+</html>
