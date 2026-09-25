@@ -12,7 +12,7 @@
       <section id="game" class="game" aria-label="Riposte combat prototype">
         <header class="game-header">
           <div><p class="eyebrow">REACTION COMBAT PROTOTYPE</p><h1>RIPOSTE</h1></div>
-          <button id="debug-toggle" class="small-button" type="button" aria-pressed="true">Hide diagnostics</button>
+          <button id="debug-toggle" class="small-button" type="button" aria-pressed="false">Show diagnostics</button>
         </header>
 
         <nav class="session-controls" aria-label="Session controls">
@@ -20,7 +20,7 @@
           <label><input id="keyboard-help" type="checkbox" checked> Key labels</label>
         </nav>
         <div id="battlefield" class="battlefield" tabindex="0">
-          <div id="combat-cue" class="combat-cue" role="status"><strong id="combat-message">Ready</strong><div class="timing-track"><span id="timing-fill"></span></div><div id="combo-sequence"></div></div>
+          <div id="combat-cue" class="combat-cue" role="status"><strong id="combat-message">Ready</strong><div id="combo-sequence"></div></div>
           <div class="status-card opponent-status" aria-label="Opponent status">
             <div class="status-heading"><span>Rival</span><span>DEF</span></div>
             <div class="meter"><span class="meter-fill health-fill full"></span></div>
@@ -39,6 +39,11 @@
               <path class="weapon" d="M98 56 L110 24" />
             </svg>
             <span class="facing-label">FACING YOU</span>
+          </div>
+
+          <div id="attack-telegraph" class="attack-telegraph" aria-hidden="true">
+            <span id="primary-threat" class="attack-marker"></span>
+            <span id="secondary-threat" class="attack-marker"></span>
           </div>
 
           <div class="duel-line" aria-hidden="true"><span></span></div>
@@ -86,7 +91,7 @@
           </div>
         </div>
 
-        <aside id="debug-panel" class="debug-panel" aria-label="Input diagnostics">
+        <aside id="debug-panel" class="debug-panel" aria-label="Input diagnostics" hidden>
           <div class="test-controls"><label><input id="ability-test" type="checkbox"> Center ability combo</label><label>Attack pattern <select id="attack-pattern"><option value="normal">Normal</option><option value="feint">Feint</option><option value="dual">Dual threat</option><option value="fast">Faster opponent</option></select></label></div>
           <div class="debug-summary"><span>State: <strong id="debug-state">READY</strong></span><span>Stance: <strong id="debug-stance">OFFENSIVE</strong></span><span>Held: <strong id="debug-held">NONE</strong></span><span id="debug-numbers"></span><span id="debug-expected"></span></div>
           <ol id="input-history" class="input-history" aria-live="polite"><li class="empty-history">Use a key or click a control to begin.</li></ol>

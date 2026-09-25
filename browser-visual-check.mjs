@@ -37,6 +37,8 @@ try{
   const naturalFocus=(await snap()).pause;
   await send('Target.closeTarget',{targetId:other.targetId});await send('Target.activateTarget',{targetId:target.id});
   if((await snap()).pause==='FOCUS_PAUSE')await click('#focus-pause');
+  assert(await ev('document.querySelector("#debug-panel").hidden'));
+  await click('#debug-toggle');assert(!(await ev('document.querySelector("#debug-panel").hidden')));
   await click('#debug-toggle');assert(await ev('document.querySelector("#debug-panel").hidden'));
   await click('#keyboard-help');assert(await ev('getComputedStyle(document.querySelector(".key-help")).visibility==="hidden"'));
   assert(await ev(`[...document.querySelectorAll('.zone-icon')].every(e => getComputedStyle(e).visibility === 'visible' && e.textContent.trim().length > 0)`),'direction symbols remain visible without key help');

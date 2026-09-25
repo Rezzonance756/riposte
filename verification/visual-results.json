@@ -3,9 +3,9 @@
     "viewport": "desktop",
     "windupPoses": [
       "HIGH",
+      "LEFT",
       "LOW",
-      "RIGHT",
-      "LEFT"
+      "RIGHT"
     ],
     "touch": "not applicable",
     "diagnosticToggle": "PASS",
@@ -69,10 +69,10 @@
   {
     "viewport": "phone",
     "windupPoses": [
-      "LOW",
       "RIGHT",
+      "HIGH",
       "LEFT",
-      "HIGH"
+      "LOW"
     ],
     "touch": "PASS",
     "diagnosticToggle": "PASS",
@@ -90,17 +90,17 @@
       "boxes": [
         {
           "action": "HIGH",
-          "x": 106.08969116210938,
-          "y": 477.5428161621094,
-          "w": 68.60186767578125,
-          "h": 68.60183715820312
+          "x": 108.03125,
+          "y": 479.484375,
+          "w": 64.71875,
+          "h": 64.71875
         },
         {
           "action": "LEFT",
-          "x": 27.65625,
-          "y": 568.21875,
-          "w": 64.71875,
-          "h": 64.71875
+          "x": 25.714691162109375,
+          "y": 566.2772216796875,
+          "w": 68.60186767578125,
+          "h": 68.601806640625
         },
         {
           "action": "RIGHT",

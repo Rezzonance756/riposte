@@ -29,6 +29,7 @@ for(const viewport of [{name:'desktop',width:1100,height:1000,mobile:false},{nam
  await send('Emulation.setDeviceMetricsOverride',{...viewport,deviceScaleFactor:1});
  await send('Page.navigate',{url:pageUrl+'?verify='+Date.now()});await sleep(200);
  await click('#start-game');
+ await click('#debug-toggle');
 
  if(phase>=5) {
   // Native select keyboard interaction: options change only the next attack.
@@ -41,13 +42,16 @@ for(const viewport of [{name:'desktop',width:1100,height:1000,mobile:false},{nam
   for(const [index,pattern] of [[1,'feint'],[2,'dual'],[3,'fast']]) {
     await choosePattern(index);await click('#start-game');
     let a=await until(s=>s.attack);assert.equal(a.attack.pattern,pattern,'pattern select');
-    assert.equal(a.attack.impact-a.attack.start,pattern==='fast'?540:800);
+    assert.ok(Math.abs((a.attack.impact-a.attack.start)-(pattern==='fast'?540:800)) < .001);
     if(pattern==='feint') {const initial=a.expectedDirection;a=await until(s=>s.attack?.revealed);assert.notEqual(a.expectedDirection,initial);}
     if(pattern==='dual') {
-      assert.equal(await ev('document.querySelectorAll(".threatened").length'),2);
+      assert.equal(await ev('document.querySelectorAll(".attack-marker.visible").length'),2);
+      const markerLayout=await ev(`(()=>{const f=document.querySelector('#battlefield').getBoundingClientRect();const markers=[...document.querySelectorAll('.attack-marker.visible')].map(e=>{const r=e.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom}});return {field:{left:f.left,top:f.top,right:f.right,bottom:f.bottom},markers}})()`);
+      for(const marker of markerLayout.markers)assert(marker.left>=markerLayout.field.left&&marker.right<=markerLayout.field.right&&marker.top>=markerLayout.field.top&&marker.bottom<=markerLayout.field.bottom,'dual marker outside battlefield');
       await shot('dual-telegraph-'+viewport.name);
       a=await until(s=>s.attack?.revealed);
-      assert.equal(await ev('document.querySelectorAll(".threatened").length'),1);
+      assert.equal(await ev('document.querySelectorAll(".attack-marker.visible:not(.decoy)").length'),1);
+      assert.equal(await ev('document.querySelectorAll(".attack-marker.decoy").length'),1);
     }
     a=await nextAttack();await click(`[data-action="${a.expectedDirection}"]`);a=await settle();
     assert.equal(a.opponent.stamina,80);assert.equal(a.player.health,pattern==='dual'?98:100);

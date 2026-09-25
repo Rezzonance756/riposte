@@ -12,7 +12,7 @@ In the browser, click **Begin duel**. You should see a blue fighter from behind 
 
 ## Read an attack and respond
 
-Watch the opponent's pose, the flashing direction control, and the timing bar. Press or click the matching direction as the bar fills. You have 260 milliseconds either side of impact; within 90 milliseconds is a perfect response. A direction pressed too early or incorrectly commits that attempt, so tapping repeatedly will not repair it.
+Watch the opponent's pose and the directional marker around them. A high attack appears above the opponent, a low attack below, and left or right attacks on the matching side. The marker closes in on the opponent as the strike approaches; press or tap the matching direction when it arrives. You have 260 milliseconds either side of impact; within 90 milliseconds is a perfect response. A direction pressed too early or incorrectly commits that attempt, so tapping repeatedly will not repair it.
 
 | Action | Keyboard | Mouse or touch |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ HP means health; reaching zero ends the duel. ST means stamina; reaching zero cr
 
 ## Finish a combo
 
-When the opponent's stamina breaks, a four-symbol sequence appears. After the short preparation beat, follow the highlighted halo control. Each prompt gives you 450 milliseconds. The bar counts down during a combo. A correct prompt deals 8 health damage. A wrong or missing response loses only that prompt; keep going.
+When the opponent's stamina breaks, a four-symbol sequence appears. After the short preparation beat, follow the highlighted halo control. Each prompt gives you 450 milliseconds, and a ring closes around the highlighted control as its deadline approaches. A correct prompt deals 8 health damage. A wrong or missing response loses only that prompt; keep going.
 
 When your own stamina breaks, follow the defensive prompts. Each correct response prevents 8 of that prompt's 10 damage. After either sequence, the broken fighter regains 60 stamina.
 
@@ -56,10 +56,10 @@ In the diagnostics panel, **Attack pattern** applies to the next attack:
 
 - **Normal:** one direction, 800-millisecond windup.
 - **Feint:** begins in one direction, then changes once 320 milliseconds before impact.
-- **Dual threat:** two controls flash; one becomes the main threat 320 milliseconds before impact. Correct timing mitigates the attack but still costs 2 health and 4 stamina.
+- **Dual threat:** two directional markers appear around the opponent; the decoy dims 320 milliseconds before impact. Correct timing mitigates the attack but still costs 2 health and 4 stamina.
 - **Faster opponent:** a 540-millisecond windup, with the other ordinary rules unchanged.
 
-**Hide diagnostics** hides the testing information. **Key labels** hides or shows the keyboard hints. Diagnostics show recent actions and input sources, expected direction, timing and result, combat state, stance, exact health/stamina, and any keys still held. Negative timing means early; positive means late. Combo timing is measured relative to its deadline.
+**Show diagnostics** reveals the testing information when you need it; diagnostics stay closed during normal play. **Key labels** hides or shows the keyboard hints. Diagnostics show recent actions and input sources, expected direction, timing and result, combat state, stance, exact health/stamina, and any keys still held. Negative timing means early; positive means late. Combo timing is measured relative to its deadline.
 
 ## If something looks wrong
 

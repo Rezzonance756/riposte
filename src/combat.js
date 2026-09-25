@@ -11,7 +11,7 @@
       pattern: 'normal',
       itemUseEndsAt: null,
       lastDirection: null, directionRun: 0,
-      effect: null, freezeMs: 0, message: "Read the windup. Match its arrow near impact.",
+      effect: null, freezeMs: 0, message: "Watch the opponent. Respond when the directional marker reaches them.",
       player: { health: config.playerHealth, stamina: config.playerStamina, broken: false },
       opponent: { health: config.opponentHealth, stamina: config.opponentStamina, broken: false, stance: "OFFENSIVE" },
       itemCount: config.healingItemCount,
@@ -66,7 +66,7 @@
       state.attack = { direction, decoy, pattern, revealed: !['feint','dual'].includes(pattern), start: state.clock, impact: state.clock + duration, response: null };
       state.expectedDirection = pattern === 'feint' ? decoy : direction;
       state.mode = "ATTACK";
-      state.message = pattern === 'dual' ? 'DUAL THREAT — watch for emphasis' : `${state.expectedDirection} — respond as the bar fills`;
+      state.message = pattern === 'dual' ? 'Two threats. Watch which marker remains strong.' : `Incoming ${state.expectedDirection.toLowerCase()}`;
     }
     function finishAttack(result) {
       const good = result === "perfect" || result === "success";

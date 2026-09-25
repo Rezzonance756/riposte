@@ -63,13 +63,39 @@
       }
       const attack = state.attack;
       const combo = state.combo;
-      const progress = combo ? Math.max(0, Math.min(1, (combo.deadline - state.clock) / config.comboPromptDurationMs)) : attack ? Math.min(1, (state.clock - attack.start) / (attack.impact - attack.start)) : 0;
-      document.getElementById('timing-fill').style.width = `${progress * 100}%`;
+      const attackProgress = attack ? Math.max(0, Math.min(1, (state.clock - attack.start) / (attack.impact - attack.start))) : 0;
+      const comboProgress = combo ? Math.max(0, Math.min(1, (state.clock - combo.start) / config.comboPromptDurationMs)) : 0;
+      const telegraph = document.getElementById('attack-telegraph');
+      const primaryThreat = document.getElementById('primary-threat');
+      const secondaryThreat = document.getElementById('secondary-threat');
+      const threatSymbols = {HIGH:'\u2191', LOW:'\u2193', LEFT:'\u2190', RIGHT:'\u2192'};
+      function renderThreat(marker, direction, visible, decoy = false) {
+        marker.classList.toggle('visible', visible);
+        marker.classList.toggle('decoy', decoy);
+        if (!visible || !direction) return;
+        marker.dataset.direction = direction;
+        marker.textContent = threatSymbols[direction];
+        const travel = ['LEFT', 'RIGHT'].includes(direction) ? 18 : 32;
+        const approach = Math.round((1 - attackProgress) * travel);
+        marker.style.setProperty('--approach', `${approach}px`);
+        marker.style.setProperty('--approach-negative', `${-approach}px`);
+        marker.style.setProperty('--marker-scale', String(.82 + attackProgress * .18));
+        marker.style.setProperty('--marker-opacity', String(decoy ? .38 : .72 + attackProgress * .28));
+      }
+      telegraph.classList.toggle('active', !!attack);
+      telegraph.setAttribute('aria-hidden', String(!attack));
+      document.getElementById('combat-cue').classList.toggle('attack-active', !!attack && !combo);
+      if (attack?.pattern === 'dual') {
+        renderThreat(primaryThreat, attack.direction, true, false);
+        renderThreat(secondaryThreat, attack.decoy, true, attack.revealed);
+      } else {
+        renderThreat(primaryThreat, attack ? state.expectedDirection : null, !!attack, false);
+        renderThreat(secondaryThreat, null, false);
+      }
       for (const control of elements.battlefield.querySelectorAll('[data-action]')) {
-        control.classList.toggle('threatened', control.dataset.action === state.expectedDirection);
-        const secondary = attack?.pattern === 'dual' && control.dataset.action === attack.decoy;
-        control.classList.toggle('secondary-threat', !!secondary && attack.revealed);
-        control.classList.toggle('threatened', control.dataset.action === state.expectedDirection || (!!secondary && !attack.revealed));
+        control.classList.toggle('threatened', !!combo && control.dataset.action === state.expectedDirection);
+        control.style.setProperty('--threat-gap', `${Math.round((1 - comboProgress) * 16)}px`);
+        control.classList.remove('secondary-threat');
       }
       pose(elements.playerFighter, state.effect?.kind === 'hit' ? 'hit' : state.effect?.kind === 'perfect' ? 'perfect' : state.effect?.kind === 'success' ? 'block' : state.stance.toLowerCase());
       pose(document.getElementById('opponent-fighter'), attack ? state.clock >= attack.impact ? 'combo' : state.expectedDirection.toLowerCase() : 'offensive');
