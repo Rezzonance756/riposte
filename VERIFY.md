@@ -44,4 +44,4 @@ It should print that the separate verification browser was closed or was already
 - Not a physical phone test, thumb-comfort study, or a Safari/Firefox compatibility certification.
 - Placeholder poses and effects are intentional. No sound or final art is needed by this specification.
 - Timing/health values are provisional; higher-level balance and the guide's deferred systems remain for later playtesting.
-- The project was not a Git repository when inspected. No Git history, commits, remote, or deployment was created.
+- The project began without Git history. It is now published from `https://github.com/Rezzonance756/riposte` through GitHub Pages at `https://rezzonance756.github.io/riposte/`.

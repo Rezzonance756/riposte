@@ -1,6 +1,6 @@
 # Riposte completion plan
 
-Source of truth: `riposte_prototype_guide.md`. Preserve the static HTML/CSS/JavaScript structure and existing SVG fighters. No Git repository exists; preserve the original guide and useful code.
+Source of truth: `riposte_prototype_guide.md`. Preserve the static HTML/CSS/JavaScript structure and existing SVG fighters. The project is published from the `main` branch at `https://github.com/Rezzonance756/riposte`; preserve the original guide and useful code.
 
 | Milestone | Current evidence | Remaining work and verification |
 | --- | --- | --- |

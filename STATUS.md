@@ -27,8 +27,8 @@ Current milestone: all five complete; definition-of-done audit passed for deskto
 - Healing consumes a tonic when confirmed, prevents responses for 450ms, keeps enemy/combo time running, then restores up to 25 health. No revival after defeat. Item choice fully pauses simulation. Further item costs/diminishing returns/opponent inventory remain deferred.
 - Feint/dual reveal the final direction 320ms before impact. Dual success still takes 2 health/4 stamina chip; ordinary miss values unchanged. Fast changes only telegraph duration to 540ms. Pattern selection applies to the next attack. All values configurable.
 - Tested with installed Chrome/Chromium on Windows and true 360×800 phone emulation; not on physical phone hardware or every browser engine. Human reaction feel and thumb comfort still need playtesting. All art and impact effects are intentionally placeholders.
-- No Git repository existed; no commit, remote, or deployment was created. The original specification and useful static-project foundation were preserved.
+- The project is now a Git repository connected to `https://github.com/Rezzonance756/riposte`. GitHub Pages publishes the public game at `https://rezzonance756.github.io/riposte/`. The original specification and useful static-project foundation were preserved.
 
 ## Recommended next step
 
-Open index.html, click Begin duel, and play several normal-pattern duels. Note whether 800ms windups, the center stance disc, and the item position feel comfortable before tuning config.js. Deferred progression, art, enemy stance AI and offensive-initiation systems remain outside the prototype.
+Open `https://rezzonance756.github.io/riposte/` on a physical phone, choose Begin duel, and play several normal-pattern duels. Note whether 800ms windups, the center stance disc, and the item position feel comfortable before tuning config.js. Deferred progression, art, enemy stance AI and offensive-initiation systems remain outside the prototype.

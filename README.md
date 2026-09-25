@@ -1,5 +1,9 @@
 # Riposte browser prototype
 
+## Play online
+
+Open **https://rezzonance756.github.io/riposte/** in a phone or computer browser and choose **Begin duel**. The hosted prototype is public and requires no installation.
+
 ## Open and start playing
 
 On this Windows computer, open the Riposte folder on the E: drive and double-click **index.html**. Choose Chrome, Edge, or Firefox if Windows asks which app to use. No installation, internet connection, account, or local server is needed.
@@ -70,5 +74,7 @@ On small windows, diagnostics can be scrolled or hidden. The combat controls rem
 ## Project and verification
 
 The original specification is riposte_prototype_guide.md. PLAN.md tracks the milestones; STATUS.md records the current results and decisions. All provisional combat values are together in src/config.js. The opponent initiates attacks; autonomous enemy stance switching, offensive initiation, progression, final artwork, and other deferred systems are outside this prototype.
+
+The public source is at **https://github.com/Rezzonance756/riposte**. GitHub Pages publishes the `main` branch from the project root.
 
 Developer checks are documented in VERIFY.md. Playing does not require those tools.
